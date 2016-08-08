@@ -1,18 +1,18 @@
 <html>
 <head>
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="node_modules/angular/angular.min.js"></script>
 
 </head>
-<body ng-app="beerList" ng-controller="MainCtrl">
+<body ng-app="beerList" ng-controller="beerCntrl">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1 class="text-center">BeerList</h1>
       <div class="page-header">
       </div>
 
-      <!-- render beers here -->
 
       <form ng-submit="addBeer()">
         <h3>Add a new beer</h3>
@@ -38,6 +38,24 @@
     </div>
   </div>
   
+      <section>
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="beer in allBeers">
+              <div class="thumbnail">
+                <img src="{{beer.img}}">
+                <div class="caption">
+                  <h2 class="text-center title-top">{{beer.name}}</h3>
+                  <p class="text-center">{{beer.abv}}</p>
+                  <pclass="text-center">{{beer.style}}</p>
+                  <button class="text-center" ng-click="removeBeer($index)"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
   <script src="js/app.js"></script>
   <script src="js/services/beers.js"></script>
   <script src="js/controllers/mainController.js"></script>
